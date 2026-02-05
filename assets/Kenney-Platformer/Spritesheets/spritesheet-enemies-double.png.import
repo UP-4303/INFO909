@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj5u6cbp63tpr"
-path="res://.godot/imported/_123863952_little2.jpg-e3808ea9224f480397ad71a39a96a9b4.ctex"
+uid="uid://c7lu3lfct78rs"
+path="res://.godot/imported/spritesheet-enemies-double.png-1e3d74bee3347a5d2dc1f7e12d28c885.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/_123863952_little2.jpg"
-dest_files=["res://.godot/imported/_123863952_little2.jpg-e3808ea9224f480397ad71a39a96a9b4.ctex"]
+source_file="res://assets/Kenney-Platformer/Spritesheets/spritesheet-enemies-double.png"
+dest_files=["res://.godot/imported/spritesheet-enemies-double.png-1e3d74bee3347a5d2dc1f7e12d28c885.ctex"]
 
 [params]
 

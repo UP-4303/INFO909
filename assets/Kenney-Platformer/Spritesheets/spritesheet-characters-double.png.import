@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj5u6cbp63tpr"
-path="res://.godot/imported/_123863952_little2.jpg-e3808ea9224f480397ad71a39a96a9b4.ctex"
+uid="uid://ccmc851ueh5vl"
+path="res://.godot/imported/spritesheet-characters-double.png-7892c04902dfdc0c732dc93d6e446c4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/_123863952_little2.jpg"
-dest_files=["res://.godot/imported/_123863952_little2.jpg-e3808ea9224f480397ad71a39a96a9b4.ctex"]
+source_file="res://assets/Kenney-Platformer/Spritesheets/spritesheet-characters-double.png"
+dest_files=["res://.godot/imported/spritesheet-characters-double.png-7892c04902dfdc0c732dc93d6e446c4a.ctex"]
 
 [params]
 
