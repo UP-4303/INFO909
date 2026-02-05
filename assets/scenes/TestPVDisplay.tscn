@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cyclytaud7pke"]
+
+[ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/CharacterMovement.gd" id="1_bfyb3"]
+[ext_resource type="Texture2D" uid="uid://ccmc851ueh5vl" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-characters-double.png" id="2_tabuh"]
+[ext_resource type="Script" uid="uid://dtqyvywsyhfhm" path="res://src/UI/health_bar.gd" id="3_wahnu"]
+[ext_resource type="PackedScene" uid="uid://dg3212wh0hmp" path="res://assets/scenes/hp.tscn" id="4_wahnu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wahnu"]
+size = Vector2(164, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtyf6"]
+atlas = ExtResource("2_tabuh")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xksq"]
+atlas = ExtResource("2_tabuh")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm3g2"]
+atlas = ExtResource("2_tabuh")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2oaa"]
+atlas = ExtResource("2_tabuh")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4ky5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtyf6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xksq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm3g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2oaa")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[node name="TestPvDisplay" type="Node2D" unique_id=7286957]
+
+[node name="CharacterMovement" type="CharacterBody2D" parent="." unique_id=343994070]
+script = ExtResource("1_bfyb3")
+metadata/_custom_type_script = "uid://bfnvyo2uhj22h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterMovement" unique_id=35131754]
+shape = SubResource("RectangleShape2D_wahnu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterMovement/CollisionShape2D" unique_id=620630028]
+sprite_frames = SubResource("SpriteFrames_l4ky5")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterMovement" unique_id=817229179]
+
+[node name="UI" type="CanvasLayer" parent="CharacterMovement/Camera2D" unique_id=1055733857]
+
+[node name="HealthBar" type="HBoxContainer" parent="CharacterMovement/Camera2D/UI" unique_id=1644260853]
+offset_right = 129.0
+offset_bottom = 120.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_wahnu")
+HP_indicator_prefab = ExtResource("4_wahnu")
+max_HP = 5
+current_HP = 1
