@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://kqt2dtemna6d"]
 
 [ext_resource type="Texture2D" uid="uid://c55vw62g6qbgk" path="res://icon.svg" id="2_aajux"]
-[ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/Character.gd" id="2_dan08"]
+[ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/CharacterMovement.gd" id="2_dan08"]
 [ext_resource type="Texture2D" uid="uid://bj5u6cbp63tpr" path="res://assets/textures/_123863952_little2.jpg" id="3_aajux"]
+[ext_resource type="Script" uid="uid://bkvuhgdbngru7" path="res://src/controller/PlayerController.gd" id="4_dan08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dan08"]
 size = Vector2(128, 128)
@@ -21,7 +22,6 @@ texture = ExtResource("3_aajux")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1935817871]
 script = ExtResource("2_dan08")
-_JUMP_VELOCITY = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1774768622]
 shape = SubResource("RectangleShape2D_dan08")
@@ -30,6 +30,11 @@ shape = SubResource("RectangleShape2D_dan08")
 texture = ExtResource("2_aajux")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1941357034]
+
+[node name="PlayerController" type="Node" parent="CharacterBody2D" unique_id=392749949 node_paths=PackedStringArray("_characterMovement")]
+script = ExtResource("4_dan08")
+_characterMovement = NodePath("..")
+metadata/_custom_type_script = "uid://bkvuhgdbngru7"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=807755378]
 

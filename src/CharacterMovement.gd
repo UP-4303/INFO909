@@ -1,0 +1,71 @@
+class_name CharacterMovement
+extends CharacterBody2D
+
+
+@export
+var _speed = 300.0
+
+@export
+var _jump_velocity = 400.0
+
+@export
+var _affected_by_gravity = true
+
+@export
+var _gravity_mult_coef = 2
+
+var _direction = Vector2.ZERO
+var _jump = false
+
+
+func move_left() -> void :
+	_direction.x = -1
+
+func move_right() -> void :
+	_direction.x = 1
+	
+func move_bottom() -> void :
+	_direction.y = -1
+	
+func move_top() -> void :
+	_direction.y = 1
+	
+func stop() -> void :
+	_direction = Vector2.ZERO
+
+func jump() -> void :
+	_jump = true
+
+
+func _movement_with_gravity(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity() * delta * _gravity_mult_coef
+
+	if is_on_floor() and _jump:
+		velocity.y = -_jump_velocity * _gravity_mult_coef
+	
+	if _direction.x != 0:
+		velocity.x = _direction.x * _speed
+	else :
+		velocity.x = move_toward(velocity.x, 0, _speed);
+
+func _movement_without_gravity(delta: float) -> void:
+	_direction = _direction.normalized()
+	if _direction != Vector2.ZERO:
+		velocity = _direction * _speed
+	else :
+		velocity = velocity.move_toward(Vector2.ZERO, _speed)
+		
+	
+
+func _physics_process(delta: float) -> void:
+
+	if _affected_by_gravity:
+		_movement_with_gravity(delta)
+	else:
+		_movement_without_gravity(delta)
+
+	_direction = Vector2.ZERO
+	_jump = false
+
+	move_and_slide()
