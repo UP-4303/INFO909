@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://tpr4c4rtfum6"]
+
+[ext_resource type="Texture2D" uid="uid://bj5u6cbp63tpr" path="res://assets/textures/_123863952_little2.jpg" id="1_ojte4"]
+[ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/CharacterMovement.gd" id="2_5abg4"]
+[ext_resource type="Texture2D" uid="uid://c55vw62g6qbgk" path="res://icon.svg" id="3_s6ugo"]
+[ext_resource type="Script" uid="uid://bkvuhgdbngru7" path="res://src/controller/PlayerController.gd" id="4_5abg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt0or"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojte4"]
+size = Vector2(1000, 50)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5abg4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s6ugo"]
+width = 1000
+height = 50
+noise = SubResource("FastNoiseLite_5abg4")
+
+[node name="SceneTestThomas" type="Node2D" unique_id=1326137035]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1448315139]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ojte4")
+
+[node name="CharacterMovement" type="CharacterBody2D" parent="." unique_id=2000548090]
+script = ExtResource("2_5abg4")
+metadata/_custom_type_script = "uid://bfnvyo2uhj22h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterMovement" unique_id=865100574]
+shape = SubResource("RectangleShape2D_kt0or")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterMovement" unique_id=819538970]
+texture = ExtResource("3_s6ugo")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterMovement" unique_id=314086696]
+
+[node name="PlayerController" type="Node" parent="CharacterMovement" unique_id=834160520 node_paths=PackedStringArray("_characterMovement")]
+script = ExtResource("4_5abg4")
+_characterMovement = NodePath("..")
+metadata/_custom_type_script = "uid://bkvuhgdbngru7"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=901959058]
+position = Vector2(0, 158)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=569271491]
+shape = SubResource("RectangleShape2D_ojte4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1401094045]
+texture = SubResource("NoiseTexture2D_s6ugo")

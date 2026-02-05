@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://da2knyfppa83k"
-path="res://.godot/imported/sfx_disappear.ogg-279842f177981e16f0813d5672298b98.oggvorbisstr"
+path="res://.godot/imported/sfx_disappear.ogg-820df7d890a82369338e1d6488adba36.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/Kenney-Platformer/Sounds/sfx_disappear.ogg"
-dest_files=["res://.godot/imported/sfx_disappear.ogg-279842f177981e16f0813d5672298b98.oggvorbisstr"]
+source_file="res://assets/Kenney-Platformer/Sounds/sfx_disappear.ogg"
+dest_files=["res://.godot/imported/sfx_disappear.ogg-820df7d890a82369338e1d6488adba36.oggvorbisstr"]
 
 [params]
 

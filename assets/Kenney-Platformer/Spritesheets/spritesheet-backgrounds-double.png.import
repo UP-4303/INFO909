@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ubfvjrjjrphb"
-path="res://.godot/imported/spritesheet-backgrounds-double.png-a276c39a755e86783c2006d83f2b9502.ctex"
+path="res://.godot/imported/spritesheet-backgrounds-double.png-6369c9b2724f7cf9bfabe3557c06df0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Kenney-Platformer/Spritesheets/spritesheet-backgrounds-double.png"
-dest_files=["res://.godot/imported/spritesheet-backgrounds-double.png-a276c39a755e86783c2006d83f2b9502.ctex"]
+source_file="res://assets/Kenney-Platformer/Spritesheets/spritesheet-backgrounds-double.png"
+dest_files=["res://.godot/imported/spritesheet-backgrounds-double.png-6369c9b2724f7cf9bfabe3557c06df0a.ctex"]
 
 [params]
 
