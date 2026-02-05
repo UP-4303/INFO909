@@ -25,9 +25,6 @@ script = ExtResource("1_5abg4")
 scale = Vector2(2, 2)
 texture = ExtResource("1_ojte4")
 
-[node name="MonsterCharacter" parent="." unique_id=1112803308 instance=ExtResource("7_m5d34")]
-position = Vector2(-665, -112)
-
 [node name="CharacterMovement" parent="." unique_id=346329133 instance=ExtResource("2_7kv4h")]
 _jump_velocity = 600.0
 
@@ -67,6 +64,16 @@ position = Vector2(159, 180)
 [node name="Trap5" parent="." unique_id=1363886939 instance=ExtResource("5_s6ugo")]
 position = Vector2(-232, 70)
 
+[node name="MonsterCharacter" parent="." unique_id=1112803308 instance=ExtResource("7_m5d34")]
+position = Vector2(-863, -114)
+type = 0
+_jump_velocity = 400.0
+_affected_by_gravity = true
+_gravity_mult_coef = 2
+
+[node name="MonsterController" parent="MonsterCharacter" index="3" unique_id=265597233]
+_distance = 200
+
 [connection signal="die" from="CharacterMovement/Health" to="." method="_player_die"]
 [connection signal="get_healed" from="CharacterMovement/Health" to="CharacterMovement/Camera2D/UI/HealthBar" method="update_health"]
 [connection signal="take_damage" from="CharacterMovement/Health" to="CharacterMovement/Camera2D/UI/HealthBar" method="update_health"]
@@ -74,3 +81,4 @@ position = Vector2(-232, 70)
 
 [editable path="CharacterMovement"]
 [editable path="CharacterMovement/Camera2D/UI"]
+[editable path="MonsterCharacter"]
