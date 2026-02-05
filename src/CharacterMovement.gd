@@ -9,9 +9,9 @@ enum TypeEnum {
 #export properties
 @export
 var type: TypeEnum
-
 @export
-var _speed = 300.0
+var speed = 300.0
+
 @export
 var _jump_velocity = 400.0
 @export
@@ -59,16 +59,16 @@ func _movement_with_gravity(delta: float) -> void:
 		velocity.y = -_jump_velocity * _gravity_mult_coef
 	
 	if _direction.x != 0:
-		velocity.x = _direction.x * _speed
+		velocity.x = _direction.x * speed
 	else :
-		velocity.x = move_toward(velocity.x, 0, _speed);
+		velocity.x = move_toward(velocity.x, 0, speed);
 
 func _movement_without_gravity(_delta: float) -> void:
 	_direction = _direction.normalized()
 	if _direction != Vector2.ZERO:
-		velocity = _direction * _speed
+		velocity = _direction * speed
 	else :
-		velocity = velocity.move_toward(Vector2.ZERO, _speed)
+		velocity = velocity.move_toward(Vector2.ZERO, speed)
 		
 	
 func _physics_process(delta: float) -> void:

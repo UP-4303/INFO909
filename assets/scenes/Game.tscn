@@ -13,6 +13,9 @@
 health = NodePath("../../CharacterMovement/Health")
 
 [node name="CharacterMovement" parent="." unique_id=346329133 instance=ExtResource("2_ovtps")]
+_speed = 500.0
+_jump_velocity = 600.0
+_gravity_mult_coef = 1
 
 [node name="Level" parent="." unique_id=9393892 instance=ExtResource("3_1but2")]
 
@@ -21,6 +24,8 @@ health = NodePath("../../CharacterMovement/Health")
 [connection signal="die" from="CharacterMovement/Health" to="GameManager" method="_player_die"]
 [connection signal="get_healed" from="CharacterMovement/Health" to="UI/HealthBar" method="update_health"]
 [connection signal="take_damage" from="CharacterMovement/Health" to="UI/HealthBar" method="update_health"]
+[connection signal="player_hit_finish" from="Level/FinishPoint" to="GameManager" method="_player_win"]
 
 [editable path="UI"]
 [editable path="CharacterMovement"]
+[editable path="Level"]

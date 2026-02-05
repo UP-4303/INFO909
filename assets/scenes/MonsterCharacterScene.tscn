@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cf7euy4pffxm2"]
+
+[ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/CharacterMovement.gd" id="1_kho6i"]
+[ext_resource type="Texture2D" uid="uid://c55vw62g6qbgk" path="res://icon.svg" id="2_ennup"]
+[ext_resource type="Script" uid="uid://byyts037lxasn" path="res://src/Health.gd" id="3_r3lsd"]
+[ext_resource type="Script" uid="uid://cm8n7qt2qa8mx" path="res://src/controller/MonsterController.gd" id="4_xwrip"]
+[ext_resource type="Script" uid="uid://cco7vjtegegra" path="res://src/Trap.gd" id="5_dcpwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcpwl"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3lsd"]
+size = Vector2(200, 200)
+
+[node name="MonsterCharacter" type="CharacterBody2D" unique_id=1112803308]
+script = ExtResource("1_kho6i")
+type = 1
+metadata/_custom_type_script = "uid://bfnvyo2uhj22h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=988364558]
+shape = SubResource("RectangleShape2D_dcpwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=123881701]
+rotation = 3.1415927
+texture = ExtResource("2_ennup")
+
+[node name="Health" type="Node" parent="." unique_id=656716188]
+script = ExtResource("3_r3lsd")
+max_health = 4
+invincibility_duration = 0.5
+metadata/_custom_type_script = "uid://byyts037lxasn"
+
+[node name="MonsterController" type="Node" parent="." unique_id=265597233 node_paths=PackedStringArray("_characterMovement")]
+script = ExtResource("4_xwrip")
+_characterMovement = NodePath("..")
+_distance = 200
+metadata/_custom_type_script = "uid://cm8n7qt2qa8mx"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1042357014]
+script = ExtResource("5_dcpwl")
+damage = 1
+exclude_types = Array[int]([1])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=625850690]
+shape = SubResource("RectangleShape2D_r3lsd")
+one_way_collision_margin = 0.0
+
+[connection signal="die" from="Health" to="MonsterController" method="stop"]
