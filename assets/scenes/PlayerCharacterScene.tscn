@@ -75,9 +75,11 @@ script = ExtResource("4_ybys8")
 invincibility_duration = 1.0
 metadata/_custom_type_script = "uid://byyts037lxasn"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=139256304]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=139256304 node_paths=PackedStringArray("health", "character_controller")]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_5suak")
 animation = &"idle"
 autoplay = "idle"
 script = ExtResource("5_dvx4m")
+health = NodePath("../Health")
+character_controller = NodePath("..")
