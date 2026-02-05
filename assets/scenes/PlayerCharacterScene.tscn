@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://dipmv8vgdl2r2" path="res://src/AnimationController.gd" id="5_dvx4m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d14j5"]
-radius = 80.0
-height = 200.0
+radius = 72.0
+height = 176.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtyf6"]
 atlas = ExtResource("4_dvx4m")
@@ -76,7 +76,7 @@ invincibility_duration = 1.0
 metadata/_custom_type_script = "uid://byyts037lxasn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=139256304 node_paths=PackedStringArray("health", "character_controller")]
-position = Vector2(0, -32)
+position = Vector2(-4, -32)
 sprite_frames = SubResource("SpriteFrames_5suak")
 animation = &"idle"
 autoplay = "idle"
