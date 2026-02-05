@@ -63,7 +63,7 @@ func _movement_with_gravity(delta: float) -> void:
 	else :
 		velocity.x = move_toward(velocity.x, 0, _speed);
 
-func _movement_without_gravity(delta: float) -> void:
+func _movement_without_gravity(_delta: float) -> void:
 	_direction = _direction.normalized()
 	if _direction != Vector2.ZERO:
 		velocity = _direction * _speed

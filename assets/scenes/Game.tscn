@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://chg0llvtj4440"]
+
+[ext_resource type="PackedScene" uid="uid://dacm03puy8emu" path="res://assets/scenes/PlayerUI.tscn" id="1_hkxsf"]
+[ext_resource type="PackedScene" uid="uid://qyor8pp77sy1" path="res://assets/scenes/PlayerCharacterScene.tscn" id="2_ovtps"]
+[ext_resource type="PackedScene" uid="uid://c274l5s5ahshh" path="res://assets/scenes/level.tscn" id="3_1but2"]
+[ext_resource type="PackedScene" uid="uid://dah2a5uwrl3yd" path="res://assets/scenes/GameManager.tscn" id="4_ovtps"]
+
+[node name="Game" type="Node2D" unique_id=999840528]
+
+[node name="UI" parent="." unique_id=1323971826 instance=ExtResource("1_hkxsf")]
+
+[node name="HealthBar" parent="UI" index="0" unique_id=1668630192 node_paths=PackedStringArray("health")]
+health = NodePath("../../CharacterMovement/Health")
+
+[node name="CharacterMovement" parent="." unique_id=346329133 instance=ExtResource("2_ovtps")]
+
+[node name="Level" parent="." unique_id=9393892 instance=ExtResource("3_1but2")]
+
+[node name="GameManager" parent="." unique_id=573903977 instance=ExtResource("4_ovtps")]
+
+[connection signal="die" from="CharacterMovement/Health" to="GameManager" method="_player_die"]
+[connection signal="get_healed" from="CharacterMovement/Health" to="UI/HealthBar" method="update_health"]
+[connection signal="take_damage" from="CharacterMovement/Health" to="UI/HealthBar" method="update_health"]
+
+[editable path="UI"]
+[editable path="CharacterMovement"]
