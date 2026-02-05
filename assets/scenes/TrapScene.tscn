@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://8360e0m43ysd"]
+
+[ext_resource type="Script" uid="uid://cco7vjtegegra" path="res://src/Trap.gd" id="1_va8xp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igi3e"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_va8xp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o27hq"]
+gradient = SubResource("Gradient_va8xp")
+width = 128
+height = 128
+
+[node name="Trap" type="Area2D" unique_id=1916361688]
+script = ExtResource("1_va8xp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1086660478]
+shape = SubResource("RectangleShape2D_igi3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=602142928]
+texture = SubResource("GradientTexture2D_o27hq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

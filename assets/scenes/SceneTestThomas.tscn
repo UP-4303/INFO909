@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bj5u6cbp63tpr" path="res://assets/textures/_123863952_little2.jpg" id="1_ojte4"]
 [ext_resource type="PackedScene" uid="uid://qyor8pp77sy1" path="res://assets/scenes/PlayerCharacterScene.tscn" id="2_7kv4h"]
 [ext_resource type="PackedScene" uid="uid://ckrctg7adll17" path="res://assets/scenes/FinishPointScene.tscn" id="4_5abg4"]
+[ext_resource type="PackedScene" uid="uid://8360e0m43ysd" path="res://assets/scenes/TrapScene.tscn" id="5_s6ugo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojte4"]
 size = Vector2(1000, 50)
@@ -24,6 +25,15 @@ texture = ExtResource("1_ojte4")
 
 [node name="CharacterMovement" parent="." unique_id=346329133 instance=ExtResource("2_7kv4h")]
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1216158627]
+position = Vector2(662, -71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=30547268]
+shape = SubResource("RectangleShape2D_ojte4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1870712992]
+texture = SubResource("NoiseTexture2D_s6ugo")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=901959058]
 position = Vector2(0, 158)
 
@@ -35,6 +45,24 @@ texture = SubResource("NoiseTexture2D_s6ugo")
 
 [node name="FinishPointScene" parent="." unique_id=554753687 instance=ExtResource("4_5abg4")]
 position = Vector2(420, 71)
+
+[node name="Trap" parent="." unique_id=1916361688 instance=ExtResource("5_s6ugo")]
+position = Vector2(-446, 70)
+
+[node name="Trap2" parent="." unique_id=612232238 instance=ExtResource("5_s6ugo")]
+position = Vector2(540, -164)
+
+[node name="Trap3" parent="." unique_id=286461152 instance=ExtResource("5_s6ugo")]
+position = Vector2(961, -141)
+
+[node name="Trap4" parent="." unique_id=2069808491 instance=ExtResource("5_s6ugo")]
+position = Vector2(159, 180)
+
+[node name="Trap5" parent="." unique_id=1363886939 instance=ExtResource("5_s6ugo")]
+position = Vector2(-232, 70)
+
+[node name="Trap6" parent="." unique_id=1079624804 instance=ExtResource("5_s6ugo")]
+position = Vector2(790, -1344)
 
 [connection signal="die" from="CharacterMovement/Health" to="." method="_player_die"]
 [connection signal="player_hit_finish" from="FinishPointScene" to="." method="_player_win"]

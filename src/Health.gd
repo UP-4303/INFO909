@@ -18,6 +18,7 @@ func damage(value: int) -> void :
 	take_damage.emit(current_health)
 	if current_health == 0 :
 		die.emit()
+	print(current_health)
 	
 func heal(value: int) -> void :
 	current_health += value

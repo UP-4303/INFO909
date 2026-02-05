@@ -17,7 +17,7 @@ height = 129
 noise = SubResource("FastNoiseLite_b0d17")
 color_ramp = SubResource("Gradient_ny6c8")
 
-[node name="FinishPointScene" type="Area2D" unique_id=554753687]
+[node name="FinishPoint" type="Area2D" unique_id=554753687]
 script = ExtResource("1_gvo2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2112694660]

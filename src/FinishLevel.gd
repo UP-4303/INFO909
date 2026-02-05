@@ -1,3 +1,4 @@
+class_name FinishLevel
 extends Node
 
 signal player_hit_finish()
