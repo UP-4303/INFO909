@@ -79,4 +79,3 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("3_wahnu")
 HP_indicator_prefab = ExtResource("4_wahnu")
 max_HP = 5
-current_HP = 1
