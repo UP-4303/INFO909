@@ -72,6 +72,7 @@ metadata/_custom_type_script = "uid://bkvuhgdbngru7"
 
 [node name="Health" type="Node" parent="." unique_id=1848220114]
 script = ExtResource("4_ybys8")
+invincibility_duration = 1.0
 metadata/_custom_type_script = "uid://byyts037lxasn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=139256304]

@@ -13,7 +13,6 @@ func init_bar(nb_HP : int) -> void:
 
 func add_heart() -> void:
 	var new_indicator = HP_indicator_prefab.instantiate()
-	print("create")
 	add_child(new_indicator)
 
 func remove_heart() -> void:

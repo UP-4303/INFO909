@@ -14,6 +14,7 @@ height = 128
 
 [node name="Trap" type="Area2D" unique_id=1916361688]
 script = ExtResource("1_va8xp")
+damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1086660478]
 shape = SubResource("RectangleShape2D_igi3e")
