@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://8360e0m43ysd"]
 
 [ext_resource type="Script" uid="uid://cco7vjtegegra" path="res://src/Trap.gd" id="1_va8xp"]
+[ext_resource type="Texture2D" uid="uid://csolaw2gmohxb" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-tiles-double.png" id="2_o27hq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_igi3e"]
-size = Vector2(128, 128)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_o27hq"]
+points = PackedVector2Array(-64, 32, -41, -36, 41, -36, 64, 32)
 
-[sub_resource type="Gradient" id="Gradient_va8xp"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_o27hq"]
-gradient = SubResource("Gradient_va8xp")
-width = 128
-height = 128
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa7vu"]
+atlas = ExtResource("2_o27hq")
+region = Rect2(0, 903, 128, 128)
 
 [node name="Trap" type="Area2D" unique_id=1916361688]
 script = ExtResource("1_va8xp")
+damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1086660478]
-shape = SubResource("RectangleShape2D_igi3e")
+shape = SubResource("ConvexPolygonShape2D_o27hq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=602142928]
-texture = SubResource("GradientTexture2D_o27hq")
+position = Vector2(0, -32)
+texture = SubResource("AtlasTexture_fa7vu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
