@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ckrctg7adll17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhivl"]
+size = Vector2(129, 129)
+
+[sub_resource type="Gradient" id="Gradient_ny6c8"]
+offsets = PackedFloat32Array(0, 0.26643193, 0.5950704, 1)
+colors = PackedColorArray(1, 0, 1, 1, 0.13028169, 0.13028169, 0.13028169, 1, 0.09803922, 0.91764706, 0.09803922, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b0d17"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cnb6t"]
+width = 129
+height = 129
+noise = SubResource("FastNoiseLite_b0d17")
+color_ramp = SubResource("Gradient_ny6c8")
+
+[node name="FinishPointScene" type="Area2D" unique_id=554753687]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2112694660]
+shape = SubResource("RectangleShape2D_vhivl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470835965]
+texture = SubResource("NoiseTexture2D_cnb6t")

@@ -1,7 +1,15 @@
 class_name CharacterMovement
 extends CharacterBody2D
 
+enum TypeEnum {
+	PLAYER,
+	MONSTER
+}
+
 #export properties
+@export
+var type: TypeEnum
+
 @export
 var _speed = 300.0
 @export
@@ -10,6 +18,8 @@ var _jump_velocity = 400.0
 var _affected_by_gravity = true
 @export
 var _gravity_mult_coef = 2
+
+
 
 #signal
 signal jump_started()
