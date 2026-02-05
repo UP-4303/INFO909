@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://byyts037lxasn" path="res://src/Health.gd" id="4_ybys8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kt0or"]
-size = Vector2(128, 128)
+size = Vector2(120, 120)
 
 [node name="CharacterMovement" type="CharacterBody2D" unique_id=346329133]
 script = ExtResource("1_am1uf")
