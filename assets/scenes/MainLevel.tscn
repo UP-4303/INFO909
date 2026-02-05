@@ -1,11 +1,57 @@
 [gd_scene format=3 uid="uid://kqt2dtemna6d"]
 
-[ext_resource type="Texture2D" uid="uid://c55vw62g6qbgk" path="res://icon.svg" id="2_aajux"]
 [ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/Character.gd" id="2_dan08"]
-[ext_resource type="Texture2D" uid="uid://bj5u6cbp63tpr" path="res://assets/textures/_123863952_little2.jpg" id="3_aajux"]
+[ext_resource type="Texture2D" uid="uid://bj5u6cbp63tpr" path="res://Assets/textures/_123863952_little2.jpg" id="3_aajux"]
+[ext_resource type="Texture2D" uid="uid://ccmc851ueh5vl" path="res://Assets/Kenney-Platformer/Spritesheets/spritesheet-characters-double.png" id="3_qy5ma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dan08"]
-size = Vector2(128, 128)
+size = Vector2(160, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0iea"]
+atlas = ExtResource("3_qy5ma")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("3_qy5ma")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("3_qy5ma")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("3_qy5ma")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1gywi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0iea")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}],
+"loop": true,
+"name": &"run",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aajux"]
 size = Vector2(769, 28.185)
@@ -24,10 +70,13 @@ script = ExtResource("2_dan08")
 _JUMP_VELOCITY = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1774768622]
+position = Vector2(-25.189999, 0)
 shape = SubResource("RectangleShape2D_dan08")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/CollisionShape2D" unique_id=1510015440]
-texture = ExtResource("2_aajux")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/CollisionShape2D" unique_id=1725072633]
+sprite_frames = SubResource("SpriteFrames_1gywi")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1941357034]
 
