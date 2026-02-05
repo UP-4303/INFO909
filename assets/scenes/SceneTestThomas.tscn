@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cm733xsh314jr" path="res://src/GameManager.gd" id="1_5abg4"]
 [ext_resource type="Texture2D" uid="uid://bj5u6cbp63tpr" path="res://assets/textures/_123863952_little2.jpg" id="1_ojte4"]
 [ext_resource type="PackedScene" uid="uid://qyor8pp77sy1" path="res://assets/scenes/PlayerCharacterScene.tscn" id="2_7kv4h"]
+[ext_resource type="PackedScene" uid="uid://dacm03puy8emu" path="res://assets/scenes/PlayerUI.tscn" id="2_kt0or"]
 [ext_resource type="PackedScene" uid="uid://ckrctg7adll17" path="res://assets/scenes/FinishPointScene.tscn" id="4_5abg4"]
 [ext_resource type="PackedScene" uid="uid://8360e0m43ysd" path="res://assets/scenes/TrapScene.tscn" id="5_s6ugo"]
 
@@ -24,9 +25,19 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_ojte4")
 
 [node name="CharacterMovement" parent="." unique_id=346329133 instance=ExtResource("2_7kv4h")]
+_jump_velocity = 600.0
+
+[node name="UI" parent="CharacterMovement/Camera2D" parent_id_path=PackedInt32Array(346329133, 464510089) index="0" unique_id=1323971826 instance=ExtResource("2_kt0or")]
+
+[node name="HealthBar" parent="CharacterMovement/Camera2D/UI" index="0" unique_id=1668630192 node_paths=PackedStringArray("health")]
+offset_right = 262.0
+offset_bottom = 129.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+health = NodePath("../../../Health")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1216158627]
-position = Vector2(662, -71)
+position = Vector2(-860, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=30547268]
 shape = SubResource("RectangleShape2D_ojte4")
@@ -44,16 +55,13 @@ shape = SubResource("RectangleShape2D_ojte4")
 texture = SubResource("NoiseTexture2D_s6ugo")
 
 [node name="FinishPointScene" parent="." unique_id=554753687 instance=ExtResource("4_5abg4")]
-position = Vector2(420, 71)
-
-[node name="Trap" parent="." unique_id=1916361688 instance=ExtResource("5_s6ugo")]
-position = Vector2(-446, 70)
+position = Vector2(-1297, -113)
 
 [node name="Trap2" parent="." unique_id=612232238 instance=ExtResource("5_s6ugo")]
-position = Vector2(540, -164)
+position = Vector2(-982, -110)
 
 [node name="Trap3" parent="." unique_id=286461152 instance=ExtResource("5_s6ugo")]
-position = Vector2(961, -141)
+position = Vector2(-561, -87)
 
 [node name="Trap4" parent="." unique_id=2069808491 instance=ExtResource("5_s6ugo")]
 position = Vector2(159, 180)
@@ -61,10 +69,10 @@ position = Vector2(159, 180)
 [node name="Trap5" parent="." unique_id=1363886939 instance=ExtResource("5_s6ugo")]
 position = Vector2(-232, 70)
 
-[node name="Trap6" parent="." unique_id=1079624804 instance=ExtResource("5_s6ugo")]
-position = Vector2(790, -1344)
-
 [connection signal="die" from="CharacterMovement/Health" to="." method="_player_die"]
+[connection signal="get_healed" from="CharacterMovement/Health" to="CharacterMovement/Camera2D/UI/HealthBar" method="update_health"]
+[connection signal="take_damage" from="CharacterMovement/Health" to="CharacterMovement/Camera2D/UI/HealthBar" method="update_health"]
 [connection signal="player_hit_finish" from="FinishPointScene" to="." method="_player_win"]
 
 [editable path="CharacterMovement"]
+[editable path="CharacterMovement/Camera2D/UI"]

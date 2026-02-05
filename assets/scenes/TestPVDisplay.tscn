@@ -1,9 +1,8 @@
-[gd_scene format=3 uid="uid://cyclytaud7pke"]
+[gd_scene format=3 uid="uid://oh4tn2bdjkyn"]
 
 [ext_resource type="Script" uid="uid://bfnvyo2uhj22h" path="res://src/CharacterMovement.gd" id="1_bfyb3"]
 [ext_resource type="Texture2D" uid="uid://ccmc851ueh5vl" path="res://assets/Kenney-Platformer/Spritesheets/spritesheet-characters-double.png" id="2_tabuh"]
-[ext_resource type="Script" uid="uid://dtqyvywsyhfhm" path="res://src/UI/health_bar.gd" id="3_wahnu"]
-[ext_resource type="PackedScene" uid="uid://dg3212wh0hmp" path="res://assets/scenes/hp.tscn" id="4_wahnu"]
+[ext_resource type="PackedScene" uid="uid://dacm03puy8emu" path="res://assets/scenes/PlayerUI.tscn" id="3_tabuh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wahnu"]
 size = Vector2(164, 256)
@@ -70,12 +69,4 @@ autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterMovement" unique_id=817229179]
 
-[node name="UI" type="CanvasLayer" parent="CharacterMovement/Camera2D" unique_id=1055733857]
-
-[node name="HealthBar" type="HBoxContainer" parent="CharacterMovement/Camera2D/UI" unique_id=1644260853]
-offset_right = 129.0
-offset_bottom = 120.0
-scale = Vector2(0.5, 0.5)
-script = ExtResource("3_wahnu")
-HP_indicator_prefab = ExtResource("4_wahnu")
-max_HP = 5
+[node name="UI" parent="CharacterMovement/Camera2D" unique_id=1323971826 instance=ExtResource("3_tabuh")]
