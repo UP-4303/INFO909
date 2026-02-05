@@ -24,9 +24,6 @@ texture = ExtResource("1_ojte4")
 
 [node name="CharacterMovement" parent="." unique_id=346329133 instance=ExtResource("2_7kv4h")]
 
-[node name="FinishPointScene" parent="CharacterMovement" unique_id=554753687 instance=ExtResource("4_5abg4")]
-position = Vector2(420, 71)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=901959058]
 position = Vector2(0, 158)
 
@@ -36,6 +33,10 @@ shape = SubResource("RectangleShape2D_ojte4")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1401094045]
 texture = SubResource("NoiseTexture2D_s6ugo")
 
+[node name="FinishPointScene" parent="." unique_id=554753687 instance=ExtResource("4_5abg4")]
+position = Vector2(420, 71)
+
 [connection signal="die" from="CharacterMovement/Health" to="." method="_player_die"]
+[connection signal="player_hit_finish" from="FinishPointScene" to="." method="_player_win"]
 
 [editable path="CharacterMovement"]
