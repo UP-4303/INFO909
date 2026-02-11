@@ -35,7 +35,6 @@ func heal(value: int) -> void :
 	
 	get_healed.emit(current_health)
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_health = max_health
 	

@@ -19,15 +19,12 @@ var _affected_by_gravity = true
 @export
 var _gravity_mult_coef = 2
 
-
-
 #signal
 signal jump_started()
 
 #private attributes
 var _direction = Vector2.ZERO
 var _jump = false
-
 
 #public methodes
 func move_left() -> void :
@@ -47,7 +44,6 @@ func stop() -> void :
 
 func jump() -> void :
 	_jump = true
-
 
 #private methodes
 func _movement_with_gravity(delta: float) -> void:
@@ -72,7 +68,6 @@ func _movement_without_gravity(_delta: float) -> void:
 		
 	
 func _physics_process(delta: float) -> void:
-
 	if _affected_by_gravity:
 		_movement_with_gravity(delta)
 	else:
